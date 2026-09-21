@@ -1,0 +1,7 @@
+Estou continuando meu portfólio missionário “José Augusto em Missão”, iniciado em outra conversa.
+
+Leia AGENTS.md e LEIA-ME.md. Inspecione dist/index.html e a proposta em previas/apoio-fragmento.html. Primeiro, ajude-me a abrir o site no navegador e confirme que conseguimos trabalhar nele localmente.
+
+Preserve o visual azul e dourado, os textos e os espaços para fotos. Quero continuar a partir destes arquivos, sem recriar o site do zero. A seção de patrocinadores e divulgação está somente na prévia, ainda não foi integrada. Vamos usar essa proposta como ponto de partida para as próximas alterações.
+
+Não publique nem altere o acesso do site agora. Não invente telefone, Pix, fotos ou dados de contribuição. Informe o que falta e aguarde minhas próximas orientações depois de conferir o projeto.
