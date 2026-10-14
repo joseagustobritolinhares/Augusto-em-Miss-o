@@ -2,14 +2,14 @@
 
 ## Escopo e estado
 
-Este é o portfólio missionário pessoal de José Augusto, em português do Brasil. O usuário quer continuar o trabalho localmente no VS Code com o Codex. A transferência não autoriza publicação, mudança de audiência ou criação de um novo Site. Atenda às próximas instruções explícitas do usuário.
+Este é o portfólio missionário pessoal de José Augusto, em português do Brasil. A fonte ativa está na raiz do repositório Git, que já tem remoto no GitHub. Publicação, mudança de audiência ou criação de um novo Site exigem instrução explícita do usuário.
 
 - Leia LEIA-ME.md para a estrutura e o estado da entrega.
-- `dist/index.html` é a fonte do site estático e corresponde à versão publicada exportada.
-- A prévia de apoio em `previas/` é uma proposta separada, ainda não integrada.
+- `index.html` e `style.css` formam a página principal ativa; `apoio.html` é a página interna ativa.
+- A prévia de apoio em `previas/` é uma referência anterior; não é a página ativa.
 - Não trate controles demonstrativos como funcionalidades concluídas.
-- Preserve a identidade em `.openai/hosting.json` se continuar pela hospedagem Sites.
-- Não existem credenciais nem histórico Git neste pacote.
+- `.openai/hosting.json` é registro legado e aponta para `dist/`, pasta ausente nesta cópia; não o use sem reconfigurar a hospedagem.
+- O repositório Git já existe e o remoto `origin` aponta para o GitHub. Não assuma que um push ativa GitHub Pages sem conferir a configuração remota.
 
 ## Conteúdo confirmado
 
@@ -27,14 +27,14 @@ Preservar o azul profundo #0c2836, dourado #e7bc71, tipografia Georgia nos títu
 
 ## Proposta discutida
 
-Entre objetivos e registros, adicionar futuramente “Faça parte desta missão”, explicando apoio para passagens, passaporte, visto e seguro. Oferecer patrocínio, contribuição e participação por orações/divulgação.
+Entre objetivos e registros, a página principal já contém a seção de vídeo e o caminho para “Faça parte desta missão” em `apoio.html`. Ela explica apoio para passagens, passaporte, visto e seguro, além de acompanhamento por oração e divulgação.
 
 Opções propostas: conversar por WhatsApp, contribuir, compartilhar no WhatsApp, copiar link e baixar uma arte de divulgação. Antes de ativar contato e doação, obter os dados do usuário. Para uma arte com retrato real, solicitar a foto. As imagens atuais são espaços reservados, não fotos perdidas.
 
-O usuário gostou da proposta e pediu uma prévia; isso não significa que os controles financeiros ou compartilhamento público foram configurados. A prévia corrigida usa elementos HTML nativos expansíveis após uma falha de carregamento da visualização original.
+Os controles financeiros e o convite de WhatsApp não foram configurados. Os botões de `apoio.html` devem permanecer desativados até haver dados reais autorizados para exibição.
 
 ## Continuação e validação
 
-Trabalhar inicialmente localmente. Alterações na cópia não atualizam o site hospedado. Não prometer sincronização automática. Antes de eventual publicação, confirmar o destino e a audiência solicitados e seguir as ferramentas/instruções de hospedagem disponíveis.
+Trabalhar localmente e revisar alterações antes de publicar. Um envio para o GitHub atualiza o repositório; não prometa atualização em hospedagem sem confirmar a configuração do GitHub Pages. Antes de qualquer outra publicação, confirmar o destino e a audiência solicitados.
 
 Para alterações visuais, verificar navegação, referências de imagens, reflow móvel e leitura. O projeto não exige build ou instalação para a versão estática atual. Evitar testes redundantes.

@@ -13,563 +13,7 @@
       type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230c2836'/%3E%3Cpath d='M20 8v24M10 17h20' stroke='%23e7bc71' stroke-width='3'/%3E%3C/svg%3E"
     />
-    <style>
-      :root {
-        --navy: #0c2836;
-        --navy2: #153c4c;
-        --gold: #e7bc71;
-        --ink: #163440;
-        --muted: #526873;
-        --paper: #f8fafb;
-        --line: #dce4e8;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 90px;
-      }
-      body {
-        margin: 0;
-        color: var(--ink);
-        background: var(--paper);
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.65;
-      }
-      a {
-        color: inherit;
-      }
-      a:focus-visible {
-        outline: 3px solid var(--gold);
-        outline-offset: 6px;
-      }
-      header {
-        background: var(--navy);
-        color: #fff;
-        border-bottom: 1px solid #ffffff20;
-      }
-      .wrap {
-        max-width: 1180px;
-        width: calc(100% - 80px);
-        margin: auto;
-      }
-      .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        min-height: 92px;
-      }
-      .brand {
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 13px;
-      }
-      .brand-mark {
-        width: 42px;
-        height: 42px;
-        border: 1px solid #e7bc7170;
-        display: grid;
-        place-items: center;
-        color: var(--gold);
-        font-family: Georgia, serif;
-        font-size: 22px;
-      }
-      .brand strong {
-        display: block;
-        font-size: 17px;
-        letter-spacing: 0.02em;
-      }
-      .brand small {
-        font-size: 12px;
-        letter-spacing: 0.19em;
-        color: #b8cbd4;
-        text-transform: uppercase;
-      }
-      nav {
-        display: flex;
-        gap: 30px;
-      }
-      nav a {
-        font-size: 14px;
-        text-decoration: none;
-        color: #d7e2e8;
-      }
-      nav a:hover {
-        color: var(--gold);
-      }
-      .hero {
-        background: var(--navy);
-        color: white;
-        padding: 78px 0 64px;
-      }
-      .hero-grid {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        align-items: center;
-        gap: 90px;
-      }
-      .eyebrow {
-        font-size: 12px;
-        letter-spacing: 0.18em;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 13px;
-      }
-      .eyebrow:before {
-        content: "";
-        display: block;
-        width: 28px;
-        height: 1px;
-        background: currentColor;
-      }
-      .hero .eyebrow {
-        color: var(--gold);
-      }
-      h1,
-      h2,
-      h3,
-      p {
-        margin-top: 0;
-      }
-      h1,
-      h2 {
-        font-family: Georgia, "Times New Roman", serif;
-        font-weight: 400;
-        line-height: 1.08;
-        letter-spacing: -0.035em;
-      }
-      h1 {
-        font-size: clamp(48px, 5.8vw, 78px);
-        margin: 25px 0;
-      }
-      h1 em {
-        color: var(--gold);
-        font-weight: 400;
-      }
-      h2 {
-        font-size: clamp(36px, 4vw, 52px);
-        margin: 20px 0 24px;
-      }
-      h3 {
-        font-size: 24px;
-        line-height: 1.3;
-        letter-spacing: -0.025em;
-        margin-bottom: 15px;
-      }
-      .intro {
-        font-size: 18px;
-        color: #bed0da;
-        max-width: 490px;
-        line-height: 1.8;
-      }
-      .button {
-        display: inline-flex;
-        align-items: center;
-        gap: 25px;
-        background: var(--gold);
-        color: var(--navy);
-        padding: 14px 23px;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: bold;
-        margin-top: 18px;
-      }
-      .button:hover {
-        background: #f3ce90;
-      }
-      .portrait-frame {
-        position: relative;      
-      }
-      .placeholder frame {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-      .placeholder {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-        background: #eaf0f3;
-        color: #536d7a;
-        min-height: 230px;
-        border-radius: 23px;
-      }
-      .placeholder img {
-        width: 100%;
-        height: 100%;
-        stroke: currentColor;
-        fill: none;
-        stroke-width: 1.3;
-        border-radius: 23px;
-      }
-      .placeholder span {
-        font-size: 14px;
-      }
-      .placeholder small {
-        display: block;
-        font-size: 12px;
-        color: inherit;
-        opacity: 0.8;
-      }
-      .portrait {
-        aspect-ratio: 4/4.8;
-        background: var(--navy2);
-        border-color: hsl(198, 22%, 41%);
-        color: #bfd0d8;
-      }
-      .portrait-label {
-        position: absolute;
-        bottom: -22px;
-        left: 30px;
-        right: -18px;
-        background: var(--gold);
-        padding: 17px 50px;
-        color: var(--navy);
-      }
-      .portrait-label strong {
-        font-family: Georgia, serif;
-        font-size: 21px;
-        font-weight: 400;
-      }
-      .portrait-label small {
-        display: block;
-        font-size: 12px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase; 
-      }
-      .hero-foot {
-        margin-top: 65px;
-        border-top: 1px solid #ffffff20;
-        padding-top: 23px;
-        display: flex;
-        gap: 30px;
-        justify-content: space-between;
-        color: #a8bfcb;
-        font-size: 13px;
-        letter-spacing: 0.06em;
-      }
-      .hero-foot span:first-child {
-        color: var(--gold);
-      }
-      section {
-        padding: 95px 0;
-      }
-      .about {
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 100px;
-      }
-      .about p {
-        color: var(--muted);
-        font-size: 17px;
-      }
-      .about .lead {
-        font-size: 22px;
-        color: var(--ink);
-        line-height: 1.55;
-      }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
-        margin-top: 26px;
-      }
-      .tag {
-        border: 1px solid var(--line);
-        padding: 6px 13px;
-        font-size: 13px;
-      }
-      .projects {
-        background: #fff;
-        border-block: 1px solid var(--line);
-      }
-      .section-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        gap: 30px;
-        margin-bottom: 45px;
-      }
-      .section-head h2 {
-        margin-bottom: 0;
-      }
-      .section-head > p {
-        font-size: 16px;
-        max-width: 335px;
-        color: var(--muted);
-        margin: 0;
-      }
-      .project {
-        display: grid;
-        grid-template-columns: 1fr 1.05fr;
-        gap: 65px;
-        padding: 40px 0;
-        border-top: 1px solid var(--line);
-        align-items: center;
-      }
-      .project .placeholder {
-        aspect-ratio: 1.55;
-      }
-      .meta {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        font-size: 13px;
-        color: var(--muted);
-        margin-bottom: 18px;
-      }
-      .year {
-        background: var(--navy);
-        color: white;
-        padding: 3px 10px;
-        font-size: 12px;
-      }
-      .project p {
-        color: var(--muted);
-        margin-bottom: 17px;
-      }
-      .detail {
-        font-size: 14px;
-        color: var(--ink);
-        border-left: 2px solid #d2a256;
-        padding-left: 14px;
-      }
-      .goals {
-        background: var(--navy);
-        color: white;
-      }
-      .goals .eyebrow {
-        color: var(--gold);
-      }
-      .goals .section-head > p {
-        color: #b7cbd5;
-      }
-      .goal-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 35px;
-        margin-top: 50px;
-      }
-      .goal {
-        border-top: 1px solid #54707e;
-        padding-top: 23px;
-      }
-      .number {
-        font-family: Georgia, serif;
-        color: var(--gold);
-        font-size: 20px;
-        display: block;
-        margin-bottom: 30px;
-      }
-      .goal h3 {
-        font-family: Georgia, serif;
-        font-weight: 400;
-        font-size: 28px;
-      }
-      .goal p {
-        color: #b7cbd5;
-        font-size: 16px;
-      }
-      .closing {
-        padding-top: 45px;
-        margin-top: 45px;
-        border-top: 1px solid #ffffff20;
-        display: flex;
-        justify-content: space-between;
-        gap: 30px;
-        align-items: center;
-      }
-      .closing p {
-        font-family: Georgia, serif;
-        font-size: 28px;
-        line-height: 1.4;
-        margin: 0;
-      }
-      .closing span {
-        font-size: 13px;
-        color: var(--gold);
-        white-space: nowrap;
-      }
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 22px;
-      }
-      .gallery-grid figure {
-        margin: 0;
-      }
-      .gallery-grid .placeholder {
-        aspect-ratio: 1.2;
-        min-height: 0;
-      }
-      .gallery-grid figcaption {
-        font-size: 14px;
-        margin-top: 13px;
-        color: var(--muted);
-      }
-      footer {
-        border-top: 1px solid var(--line);
-        padding: 28px 0;
-      }
-      .footer {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        font-size: 13px;
-        color: var(--muted);
-      }
-      .footer strong {
-        color: var(--ink);
-      }
-      @media (max-width: 850px) {
-        .wrap {
-          width: calc(100% - 40px);
-        }
-        .nav {
-          flex-wrap: wrap;
-          padding: 19px 0;
-          gap: 15px;
-        }
-        nav {
-          gap: 20px;
-          flex-wrap: wrap;
-        }
-        .hero-grid {
-          gap: 35px;
-          grid-template-columns: 1.15fr 0.85fr;
-        }
-        .hero {
-          padding-top: 55px;
-        }
-        h1 {
-          font-size: 52px;
-        }
-        .portrait-label {
-          right: 0;
-          left: 0;
-        }
-        .about {
-          gap: 40px;
-        }
-        .project {
-          gap: 35px;
-        }
-        .goal-grid {
-          gap: 24px;
-        }
-        .hero-foot {
-          gap: 14px;
-          flex-wrap: wrap;
-        }
-      }
-      @media (max-width: 600px) {
-        .wrap {
-          width: calc(100% - 40px);
-        }
-        .nav {
-          align-items: start;
-        }
-        .brand strong {
-          font-size: 16px;
-        }
-        nav {
-          gap: 21px;
-          width: 100%;
-          padding-top: 12px;
-          border-top: 1px solid #ffffff20;
-        }
-        nav a {
-          font-size: 13px;
-        }
-        .hero-grid,
-        .about,
-        .project,
-        .goal-grid {
-          grid-template-columns: 1fr;
-        }
-        .hero-grid {
-          gap: 45px;
-        }
-        h1 {
-          font-size: 54px;
-        }
-        .hero {
-          padding: 45px 0 30px;
-        }
-        .intro {
-          font-size: 17px;
-        }
-        .portrait-frame {
-          width: 90%;
-          max-width: 350px;
-          margin: auto;
-        }
-        .portrait {
-          aspect-ratio: 1.1;
-        }
-        .hero-foot {
-          margin-top: 60px;
-        }
-        .hero-foot span:last-child {
-          display: none;
-        }
-        section {
-          padding: 65px 0;
-        }
-        .about {
-          gap: 12px;
-        }
-        .section-head {
-          display: block;
-        }
-        .section-head > p {
-          margin-top: 22px;
-        }
-        .project {
-          gap: 24px;
-          padding: 30px 0;
-        }
-        .project .placeholder {
-          min-height: 210px;
-        }
-        .goal-grid {
-          gap: 25px;
-          margin-top: 35px;
-        }
-        .number {
-          margin-bottom: 15px;
-        }
-        .closing {
-          align-items: start;
-          flex-direction: column;
-          gap: 15px;
-        }
-        .gallery-grid {
-          grid-template-columns: 1fr;
-        }
-        .gallery-grid .placeholder {
-          aspect-ratio: 1.5;
-        }
-        .footer {
-          flex-direction: column;
-          gap: 5px;
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -587,8 +31,8 @@
         >
         <nav aria-label="Navegação principal">
           <a href="#sobre">Sobre mim</a><a href="#projetos">Projetos</a
-          ><a href="#objetivos">Próximos passos</a
-          ><a href="#registros">Registros</a>
+          ><a href="#objetivos">Próximos passos</a><a href="#video">Vídeo</a
+          ><a href="apoio.html">Apoie</a>
         </nav>
       </div>
     </header>
@@ -600,9 +44,7 @@
               <div class="eyebrow">Fé que se transforma em serviço</div>
               <h1>Uma vida a serviço.<br />Um chamado <em>para ir.</em></h1>
               <p class="intro">
-                Sou José Augusto, missionário adventista. Do Amazonas aos novos
-                caminhos que Deus abrir, meu desejo é compartilhar a esperança e
-                servir às pessoas.
+                Sou o Augusto, tenho 20 anos, sou <strong>missionário</strong> e <strong>apaixonado</strong> pelo <strong>SVA</strong>. Do Amazonas aos novos caminhos que Deus abrir, meu propósito é servir às pessoas e compartilhar esperança por onde eu passar.
               </p>
               <a class="button" href="#projetos"
                 >Conheça minha trajetória <span aria-hidden="true">↗</span></a
@@ -611,7 +53,6 @@
             <div class="portrait-frame">
               <div class="placeholder portrait">
                 <img
-                  aria-hidden="true"
                   src="img/Foto my.jpg"
                   alt="José Augusto"
                 />
@@ -667,7 +108,7 @@
           </div>
           <article class="project">
             <div class="placeholder">
-              <img src="img/Urucará.png" alt="Missão em Urucará" aria-hidden="true" />
+              <img src="img/Urucará.png" alt="Missão em Urucará" />
             </div>
             <div>
               <div class="meta">
@@ -687,7 +128,7 @@
           </article>
           <article class="project">
             <div class="placeholder">
-              <img src="img/imersao.jpg" alt="Formação no Instituto" aria-hidden="true" />
+              <img src="img/imersao.jpg" alt="Formação no Instituto" />
             </div>
             <div>
               <div class="meta">
@@ -709,7 +150,7 @@
           </article>
           <article class="project">
             <div class="placeholder">
-              <img src="img/colportagem-melhorada.png" alt="Campanhas de colportagem" aria-hidden="true" />
+              <img src="img/colportagem-melhorada.png" alt="Campanhas de colportagem" />
             </div>
             <div>
               <div class="meta">
@@ -765,11 +206,49 @@
           </div>
           </div>
       </section>
+      <section class="video-section" id="video" aria-labelledby="video-title">
+        <div class="wrap video-layout">
+          <div>
+            <div class="eyebrow">04 / Apresentação do projeto</div>
+            <h2 id="video-title">Conheça o projeto<br />em minhas palavras.</h2>
+            <p class="lead">
+              Assista ao vídeo de apresentação para conhecer melhor este
+              propósito e os próximos passos da missão.
+            </p>
+            <p>
+              O vídeo será incluído assim que estiver pronto. Ao chegar ao
+              final, o convite para contribuir aparecerá aqui.
+            </p>
+            <a class="text-link" href="apoio.html">Prefere ir direto para a página de apoio? <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="video-card">
+            <!-- Adicione aqui o arquivo ou a URL do vídeo quando ela estiver disponível. -->
+            <video
+              id="video-apresentacao"
+              class="presentation-video"
+              controls
+              preload="metadata"
+              aria-describedby="video-status"
+              data-src=""
+            >
+              Seu navegador não oferece suporte à reprodução de vídeo.
+            </video>
+            <div class="video-placeholder" id="video-placeholder">
+              <span aria-hidden="true">▶</span>
+              <strong>Vídeo de apresentação</strong>
+              <p id="video-status">Em breve: o vídeo será adicionado aqui.</p>
+            </div>
+            <a class="button video-contribute" id="video-contribute" href="apoio.html" hidden>
+              Eu quero contribuir <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
       <section id="registros">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <div class="eyebrow">04 / Memórias da missão</div>
+              <div class="eyebrow">05 / Memórias da missão</div>
               <h2>Histórias para guardar.</h2>
             </div>
           </div>
@@ -805,5 +284,24 @@
         ><a href="#inicio">Voltar ao início ↑</a>
       </div>
     </footer>
+    <script>
+      (() => {
+        const video = document.getElementById("video-apresentacao");
+        const contribute = document.getElementById("video-contribute");
+        const placeholder = document.getElementById("video-placeholder");
+        if (!(video instanceof HTMLVideoElement) || !(contribute instanceof HTMLAnchorElement)) return;
+
+        if (video.dataset.src) {
+          video.src = video.dataset.src;
+          video.style.display = "block";
+          if (placeholder) placeholder.hidden = true;
+        }
+
+        video.addEventListener("ended", () => {
+          contribute.hidden = false;
+          contribute.focus();
+        });
+      })();
+    </script>
   </body>
 </html>

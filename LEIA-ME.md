@@ -6,8 +6,8 @@ Este pacote permite continuar o portfólio no seu computador e no VS Code com o 
 
 1. Extraia todo o ZIP na pasta que você criou no computador. Não trabalhe diretamente dentro do ZIP.
 2. No VS Code, use **Arquivo > Abrir Pasta** e escolha a pasta que contém este LEIA-ME.md e o arquivo AGENTS.md.
-3. Para visualizar o site, abra `dist/index.html` no navegador. Pode dar dois cliques no arquivo pelo Explorador de Arquivos.
-4. Para ver a proposta de patrocinadores e divulgação, abra `previas/apoio.html` no navegador.
+3. Para visualizar o portfólio, abra `index.html` no navegador. Pode dar dois cliques no arquivo pelo Explorador de Arquivos.
+4. Para visualizar a página de apoio, abra `apoio.html`. Os arquivos em `previas/` são referências históricas e não são a versão ativa.
 5. No chat do Codex dentro do VS Code, cole o texto do arquivo `CONTINUAR-NO-CODEX.txt`.
 
 O projeto é HTML e CSS estático. Não é necessário instalar Node.js, npm ou dependências para abrir ou editar a versão atual. Após salvar alterações, atualize a página no navegador.
@@ -16,42 +16,42 @@ O projeto é HTML e CSS estático. Não é necessário instalar Node.js, npm ou 
 
 Para entender o desenho da página, as classes CSS, a navegação e como editar o projeto, consulte o [Manual do projeto](MANUAL-DO-PROJETO.md), com esboços para computador e celular.
 
-- `dist/index.html`: código completo da versão publicada, com conteúdo, estilos, navegação e ícone do site no mesmo arquivo.
-- `previas/apoio.html`: prévia independente da seção de apoio, pronta para abrir no navegador.
-- `previas/apoio-fragmento.html`: fonte editável da prévia, útil como referência para integrar a seção ao site.
+- `index.html`: página principal do portfólio.
+- `apoio.html`: página interna com as formas de apoio à missão.
+- `style.css`: estilos compartilhados pelas duas páginas.
+- `img/`: retrato e imagens dos projetos usados pelo site.
+- `previas/apoio.html` e `previas/apoio-fragmento.html`: materiais anteriores, mantidos apenas como referência.
 - `AGENTS.md`: contexto e orientações para o Codex continuar o trabalho.
 - `CONTINUAR-NO-CODEX.txt`: mensagem pronta para iniciar a continuação.
-- `.openai/hosting.json`: identidade do Site existente e indicação da pasta pública `dist`.
-- `.gitignore`: exclusões para um eventual repositório Git local.
+- `.openai/hosting.json`: registro legado de uma hospedagem anterior; não é usado para publicar no GitHub.
+- `.gitignore`: exclusões do repositório Git.
 
 ## O que já está feito
 
-Portfólio responsivo em português, em azul profundo e dourado, contendo apresentação de José Augusto, trajetória, objetivos futuros e sete espaços reservados para fotos.
+Portfólio responsivo em português, em azul profundo e dourado, contendo apresentação de José Augusto, trajetória, objetivos futuros, vídeo de apresentação pendente e três espaços reservados para registros fotográficos.
 
 Projetos incluídos: Um Ano em Missão em Urucará (2025), Escola de Imersão Transcultural no Instituto de Missões Noroeste (2026) e campanhas de colportagem (2025–2026).
 
-## O que está somente na prévia
+## Página de apoio: estado atual
 
-A seção “Faça parte desta missão” e as opções de divulgação ainda NÃO foram integradas à versão publicada. Na prévia, os controles apenas mostram explicações. Não enviam mensagens, não copiam links, não recebem doações e não baixam uma arte final.
+“Faça parte desta missão” já está disponível em `apoio.html`. Há dois caminhos: contribuir com o preparo e acompanhar/orar/divulgar. Os controles permanecem desativados enquanto não houver dados reais; a página não envia mensagens, não confirma doações nem processa pagamentos.
 
-Local proposto: depois de “Próximos passos” e antes de “Memórias da missão”.
+Ainda faltam: meio(s) de contribuição autorizado(s), dados de exibição (por exemplo, chave Pix ou link de plataforma), link de convite do WhatsApp, vídeo de apresentação e, se desejado, fotos para a galeria. Não existem esses dados no pacote. O destino missionário internacional também não foi confirmado.
 
-Falta definir o WhatsApp de contato, dados de contribuição, fotos e arte final de divulgação. Não existem esses dados no pacote. O destino missionário internacional também não foi confirmado.
+## Repositório e publicação
 
-## Site existente e publicação
+O repositório remoto integrado é `https://github.com/joseagustobritolinhares/Augusto-em-Miss-o.git`, na ramificação `main`.
 
-Endereço existente: https://jose-augusto-em-missao.joseaugustobritolinh.chatgpt.site
+Enviar alterações para `main` atualiza o repositório. Caso o GitHub Pages esteja configurado para essa ramificação, a publicação segue a configuração do próprio repositório. Confirme a URL pública e a origem do Pages no GitHub antes de depender dela para divulgação.
 
-Última publicação confirmada nesta conversa: versão 1, privada. Revisão de origem: 5c7a659b7690d66ad7c98f123526bcc4897af1c3.
+O arquivo `.openai/hosting.json` pertence a uma hospedagem anterior e aponta para uma pasta `dist` que não faz parte desta cópia. Não o use para publicar esta versão sem reconfigurar a hospedagem.
 
-A transferência deste pacote NÃO modifica a página hospedada e NÃO sincroniza automaticamente suas alterações locais. O histórico Git e as credenciais da hospedagem não foram incluídos.
-
-Para atualizar o mesmo endereço no futuro, será necessário usar Sites com acesso ao Site existente e à sua publicação. O arquivo `.openai/hosting.json` identifica esse Site; não é uma credencial. Se Sites não estiver disponível no Codex local, continue a edição local e escolha depois como publicar. Não crie automaticamente outro Site nem altere a privacidade.
+O Git já está inicializado e o remoto já está configurado. Use `git status`, faça uma revisão e envie com `git push origin main` quando a publicação estiver autorizada.
 
 ## Fotos
 
-Os espaços para imagens são intencionais: nenhuma fotografia pessoal foi incorporada. Quando for adicionar as suas, uma organização simples é criar `dist/imagens/` e referenciá-las no HTML com caminhos relativos, como `imagens/retrato.jpg`.
+O retrato e as imagens da trajetória já estão em `img/`. Os três espaços em “Memórias da missão” são intencionais. Quando for adicionar fotos, mantenha-as em `img/` ou `galeria/` e referencie-as com caminhos relativos, como `galeria/nome-da-foto.jpg`.
 
 ## Cópias e histórico
 
-O ZIP é uma cópia de transferência. Você pode iniciar um repositório Git próprio na pasta local para registrar alterações. Não há repositório remoto pessoal configurado neste pacote.
+O projeto já é um repositório Git conectado ao GitHub. Revise alterações locais antes de fazer commits para não publicar conteúdo não confirmado.

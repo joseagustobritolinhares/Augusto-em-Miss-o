@@ -1,8 +1,8 @@
 # Manual do projeto — José Augusto em Missão
 
-Documentação da cópia local, revisada em 21/09/2026.
+Documentação revisada em 14/10/2026.
 
-Este manual explica a página, seu desenho, todas as classes usadas no site principal e como fazer a manutenção. A prévia de apoio tem um catálogo separado. Os esboços representam a organização do código; não são capturas de tela.
+Este manual explica as páginas, seu desenho, as principais classes usadas no site e como fazer a manutenção. Os esboços representam a organização do código; não são capturas de tela.
 
 ## 1. Descrição do projeto
 
@@ -10,17 +10,19 @@ O projeto é um portfólio pessoal de José Augusto, missionário da Igreja Adve
 
 A narrativa reúne o projeto Um Ano em Missão em Urucará, Amazonas (2025), a Escola de Imersão Transcultural no Instituto de Missões Noroeste (2026) e campanhas de colportagem (2025–2026). O destino internacional ainda não está confirmado.
 
-O site é uma única página em português do Brasil, com navegação por seções. Usa HTML para o conteúdo e CSS para a aparência. **Não há JavaScript, funções de programação, servidor de aplicação ou banco de dados em `dist/index.html`.** Não é necessário instalar dependências nem executar um build.
+O site tem uma página principal em português do Brasil, uma página interna de apoio e navegação por seções. Usa HTML para o conteúdo, CSS para a aparência e um pequeno JavaScript local para revelar um convite depois que o vídeo de apresentação terminar. Não há servidor de aplicação, banco de dados, dependências ou etapa de build.
 
-Há sete espaços intencionais para fotografias: um retrato, três fotos de projetos e três registros. Eles ainda não contêm fotos pessoais.
+O retrato e as três experiências da trajetória usam imagens em `img/`. A galeria de memórias mantém três espaços reservados até que os registros escolhidos sejam integrados.
 
 ## 2. Arquivos e como abrir
 
 | Caminho | Responsabilidade |
 | --- | --- |
-| [dist/index.html](dist/index.html) | Página principal: conteúdo, CSS e ícones SVG no mesmo arquivo. |
-| [previas/apoio.html](previas/apoio.html) | Prévia independente, com estrutura de visualização exportada. |
-| [previas/apoio-fragmento.html](previas/apoio-fragmento.html) | HTML e CSS editáveis da proposta de apoio. |
+| [index.html](index.html) | Página principal: conteúdo, vídeo de apresentação, navegação e script local de liberação do convite. |
+| [apoio.html](apoio.html) | Página interna de apoio, com caminhos separados para contribuir ou acompanhar a missão. |
+| [style.css](style.css) | Estilos compartilhados por `index.html` e `apoio.html`, inclusive regras de celular. |
+| [previas/apoio.html](previas/apoio.html) | Prévia exportada anterior; mantida apenas como referência histórica. |
+| [previas/apoio-fragmento.html](previas/apoio-fragmento.html) | Fragmento editável da proposta anterior; não é a página de apoio ativa. |
 | [LEIA-ME.md](LEIA-ME.md) | Instruções iniciais e estado da entrega. |
 | [AGENTS.md](AGENTS.md) | Contexto, conteúdo confirmado e orientações de continuidade. |
 | [CONTINUAR-NO-CODEX.txt](CONTINUAR-NO-CODEX.txt) | Texto de orientação para retomar o trabalho. |
@@ -30,7 +32,7 @@ Há sete espaços intencionais para fotografias: um retrato, três fotos de proj
 
 Para consultar este manual no VS Code, abra o arquivo e use **Ctrl+Shift+V** para visualizar o Markdown formatado. Para abrir ao lado do código, use **Ctrl+K V** (Ctrl+K e depois V).
 
-Para visualizar o site, abra `dist/index.html` no navegador. Edite no VS Code, salve com **Ctrl+S** e atualize o navegador. Alterações locais não atualizam automaticamente a versão hospedada.
+Para visualizar o portfólio, abra `index.html` no navegador. Para abrir diretamente a página interna, use `apoio.html`. Edite no VS Code, salve com **Ctrl+S** e atualize o navegador. Alterações locais não atualizam automaticamente a versão hospedada.
 
 ## 3. Esboço da página no computador
 
@@ -40,7 +42,7 @@ Leia de cima para baixo. O conteúdo fica centralizado por `.wrap`, com largura 
 ┌──────────────────────────────────────────────────────────────────┐
 │ CABEÇALHO — header#inicio > .wrap.nav                             │
 │ [JA] JOSÉ AUGUSTO     Sobre mim | Projetos | Próximos passos       │
-│      Em missão                                     | Registros   │
+│      Em missão                       Vídeo | Apoie (apoio.html)   │
 │      .brand + .brand-mark                  nav > a               │
 ├──────────────────────────────────────────────────────────────────┤
 │ APRESENTAÇÃO — .hero (fundo azul profundo)                        │
@@ -49,7 +51,7 @@ Leia de cima para baixo. O conteúdo fica centralizado por `.wrap`, com largura 
 │ │ .eyebrow                       │ │ .portrait-frame           │ │
 │ │ Uma vida a serviço.        h1   │ │ ┌───────────────────────┐ │ │
 │ │ Um chamado para ir.            │ │ │ .placeholder.portrait │ │ │
-│ │ Apresentação pessoal   .intro  │ │ │    Retrato reservado  │ │ │
+│ │ Apresentação pessoal   .intro  │ │ │    Retrato em img/    │ │ │
 │ │ [Conheça minha trajetória]     │ │ └───────────────────────┘ │ │
 │ │ .button → #projetos            │ │ .portrait-label           │ │
 │ └────────────────────────────────┘ └───────────────────────────┘ │
@@ -64,7 +66,7 @@ Leia de cima para baixo. O conteúdo fica centralizado por `.wrap`, com largura 
 │ 02 / TRAJETÓRIA — section#projetos.projects                       │
 │ .section-head — título e texto de abertura                       │
 │ ┌────────────────────────────┐ ┌───────────────────────────────┐ │
-│ │ Foto: .placeholder         │ │ .meta > .year + local         │ │
+│ │ Imagem em img/             │ │ .meta > .year + local         │ │
 │ │                            │ │ h3 + p + .detail              │ │
 │ └────────────────────────────┘ └───────────────────────────────┘ │
 │ .project × 3: Urucará / Formação no IMN / Colportagem             │
@@ -78,9 +80,14 @@ Leia de cima para baixo. O conteúdo fica centralizado por `.wrap`, com largura 
 │ │ Servir fora      │ │ Continuar o     │ │ Palavra e       │ │
 │ │ do Brasil        │ │ preparo         │ │ cuidado          │ │
 │ └──────────────────┘ └──────────────────┘ └──────────────────┘ │
-│ .closing — Disponível para ir. Disposto a servir.                │
+│                                                                    │
 ├──────────────────────────────────────────────────────────────────┤
-│ 04 / MEMÓRIAS — section#registros                                │
+│ 04 / VÍDEO — section#video.video-section                          │
+│ Texto de contexto + caminho alternativo para apoio                 │
+│ .video-card: vídeo ou aviso temporário                             │
+│ Ao terminar o vídeo: [Eu quero contribuir] → apoio.html            │
+├──────────────────────────────────────────────────────────────────┤
+│ 05 / MEMÓRIAS — section#registros                                │
 │ .section-head — Histórias para guardar.                          │
 │ .gallery-grid                                                   │
 │ ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ │
@@ -105,7 +112,7 @@ Leia de cima para baixo. O conteúdo fica centralizado por `.wrap`, com largura 
 │ Título principal             │
 │ Apresentação                 │
 │ [Conheça minha trajetória]   │
-│ Retrato reservado            │
+│ Retrato                      │
 │ Identificação                │
 │ Faixa .hero-foot             │
 ├──────────────────────────────┤
@@ -121,9 +128,12 @@ Leia de cima para baixo. O conteúdo fica centralizado por `.wrap`, com largura 
 │ Objetivo 01                  │
 │ Objetivo 02                  │
 │ Objetivo 03                  │
-│ Frase de encerramento        │
 ├──────────────────────────────┤
-│ 04 / Memórias da missão      │
+│ 04 / Vídeo de apresentação   │
+│ Aviso temporário ou vídeo     │
+│ Caminho visível para apoio    │
+├──────────────────────────────┤
+│ 05 / Memórias da missão      │
 │ Foto 1 + legenda             │
 │ Foto 2 + legenda             │
 │ Foto 3 + legenda             │
@@ -134,9 +144,9 @@ Leia de cima para baixo. O conteúdo fica centralizado por `.wrap`, com largura 
 
 | Regra CSS | Comportamento previsto pelo código |
 | --- | --- |
-| Base, acima de 850 px | Layout amplo; `.wrap` usa `calc(100% - 80px)`; apresentação, biografia e projetos em duas colunas; objetivos e galeria em três. |
+| Base, acima de 850 px | Layout amplo; `.wrap` usa `calc(100% - 80px)`; apresentação, biografia, projetos e vídeo em duas colunas; objetivos e galeria em três. A página de apoio apresenta dois cartões lado a lado. |
 | `@media(max-width:850px)` | Margens laterais de 20 px; espaçamentos menores; cabeçalho e faixa da apresentação podem quebrar linha. |
-| `@media(max-width:600px)` | Grids em uma coluna; menu ocupa uma linha própria e pode quebrar; rodapé e encerramento empilhados; último texto de `.hero-foot` oculto. |
+| `@media(max-width:600px)` | Grids em uma coluna; menu ocupa uma linha própria e pode quebrar; vídeo e cartões de apoio ficam empilhados; rodapé e retorno do apoio se organizam verticalmente; último texto de `.hero-foot` oculto. |
 | `@media(prefers-reduced-motion:reduce)` | Desativa a rolagem suave para respeitar a preferência do visitante. |
 
 As regras até 600 px se somam às de 850 px e substituem propriedades quando necessário. O menu permanece visível: não existe menu hambúrguer. O cabeçalho não é fixo.
@@ -157,11 +167,11 @@ Nesse exemplo, `.projects` determina o estilo da seção, `#projetos` é o desti
 
 `class="wrap nav"` aplica duas classes ao mesmo elemento. Já `.project .placeholder` seleciona um espaço de foto **dentro** de um projeto. `.section-head > p` seleciona o parágrafo filho direto do cabeçalho da seção.
 
-O arquivo principal contém, nesta ordem: metadados no `<head>`, estilos em `<style>`, símbolo SVG de foto, cabeçalho, conteúdo em `<main>` e rodapé. O CSS está compactado em poucas linhas; procure pelos nomes com **Ctrl+F**, sem depender de números de linha.
+`index.html` contém, nesta ordem: metadados no `<head>`, referência a `style.css`, símbolo SVG de foto, cabeçalho, conteúdo em `<main>`, rodapé e o pequeno script do vídeo. `apoio.html` referencia o mesmo `style.css`. Procure pelos nomes com **Ctrl+F**, sem depender de números de linha.
 
-## 6. Catálogo completo das classes da página principal
+## 6. Catálogo das classes atuais
 
-As classes abaixo estão em `dist/index.html`. Elas são classes CSS, não classes de programação orientada a objetos.
+As classes abaixo são usadas em `index.html`, `apoio.html` e `style.css`. Elas são classes CSS, não classes de programação orientada a objetos.
 
 | Classe | Onde aparece e qual sua função |
 | --- | --- |
@@ -180,7 +190,7 @@ As classes abaixo estão em `dist/index.html`. Elas são classes CSS, não class
 | `.portrait-label` | Faixa dourada sobreposta à parte inferior da moldura, com nome e identificação. |
 | `.hero-foot` | Faixa inferior da apresentação, com linha divisória e frases curtas. |
 | `.about` | Grade da biografia: título de um lado, texto do outro. |
-| `.lead` | Primeiro parágrafo da biografia, maior e mais destacado. Estilizado por `.about .lead`. |
+| `.lead` | Parágrafo maior e mais destacado na biografia e na apresentação do vídeo. |
 | `.tags` | Agrupa etiquetas temáticas e permite quebra de linha. |
 | `.tag` | Uma etiqueta com borda, como “Missão e serviço”. |
 | `.projects` | Fundo branco e bordas da seção de trajetória. |
@@ -193,9 +203,29 @@ As classes abaixo estão em `dist/index.html`. Elas são classes CSS, não class
 | `.goal-grid` | Grade dos três objetivos. |
 | `.goal` | Um objetivo, com borda superior e espaçamento. |
 | `.number` | Número dourado de cada objetivo. |
-| `.closing` | Encerramento dos objetivos, com frase e assinatura. |
+| `.video-section` | Seção clara do vídeo de apresentação, entre os objetivos e os registros. |
+| `.video-layout` | Grade que alinha o texto de contexto ao cartão do vídeo. No celular passa a uma coluna. |
+| `.video-card` | Área azul que contém o vídeo ou, enquanto ele não existir, o aviso temporário. |
+| `.presentation-video` | Elemento `<video>` inicialmente oculto, exibido quando houver uma URL direta configurada em `data-src`. |
+| `.video-placeholder` | Aviso visível enquanto não há vídeo configurado. |
+| `.video-contribute` | Link “Eu quero contribuir”, oculto até o evento de término do vídeo. |
+| `.text-link` | Link textual sublinhado usado no caminho alternativo para apoio e no retorno ao portfólio. |
 | `.gallery-grid` | Grade dos três registros; também define aparência das fotos reservadas e legendas internas. |
 | `.footer` | Alinha os elementos internos do rodapé; a tag `footer` aplica borda e espaçamento externos. |
+
+### Classes exclusivas da página de apoio
+
+| Classe | Onde aparece e qual sua função |
+| --- | --- |
+| `.support-hero` | Abertura azul da página `apoio.html`. |
+| `.support-options` | Contêiner das duas formas independentes de participação. |
+| `.support-grid` | Grade com os cartões de contribuição e acompanhamento; no celular passa a uma coluna. |
+| `.support-card` | Cartão de uma opção de apoio, com texto e controle correspondente. |
+| `.support-card-dark` | Variação azul do cartão “Acompanhar a missão”. |
+| `.support-note` | Aviso de que os dados ou o convite ainda não foram fornecidos. |
+| `.button-disabled` | Estado visual e não interativo dos botões pendentes. |
+| `.button-outline` | Variante transparente, usada no botão de WhatsApp quando for ativado. |
+| `.support-return` e `.return-content` | Faixa de retorno ao vídeo e ao portfólio. |
 
 ### Seletores sem classe e estados visuais
 
@@ -213,6 +243,8 @@ As classes abaixo estão em `dist/index.html`. Elas são classes CSS, não class
 | `.eyebrow:before` | Desenha o pequeno traço anterior ao rótulo, sem imagem externa. |
 | `.hero-foot span:first-child` | Destaca o primeiro texto da faixa. |
 | `.hero-foot span:last-child` | Oculta o último texto da faixa na regra de celular. |
+| `.video-contribute[hidden]` | Mantém o convite de contribuição fora da página até o vídeo terminar. |
+| `.button-disabled` | Indica visualmente um controle ainda indisponível; o atributo HTML `disabled` impede o clique. |
 | `.placeholder svg`, `span`, `small` dentro dos seletores correspondentes | Dimensionam ícone, texto e observação dos espaços reservados. |
 | `.gallery-grid figure`, `.gallery-grid figcaption` | Removem a margem padrão da figura e formatam sua legenda. |
 
@@ -228,9 +260,9 @@ As classes abaixo estão em `dist/index.html`. Elas são classes CSS, não class
 | `--paper` | `#f8fafb` | Fundo claro da página. |
 | `--line` | `#dce4e8` | Bordas e divisórias claras. |
 
-Os títulos `h1` e `h2` usam Georgia, com alternativas Times New Roman e serif. O corpo usa Arial, Helvetica e sans-serif. Alguns outros elementos, como títulos dos objetivos e frase de encerramento, também recebem Georgia explicitamente. Nem toda cor está em variável: há valores diretos para tons auxiliares e transparências.
+Os títulos `h1` e `h2` usam Georgia, com alternativas Times New Roman e serif. O corpo usa Arial, Helvetica e sans-serif. Outros elementos, como títulos dos objetivos, o aviso do vídeo e o retorno da página de apoio, também recebem Georgia explicitamente. Nem toda cor está em variável: há valores diretos para tons auxiliares e transparências.
 
-Não existem funções JavaScript no site principal. Estas são as **funções nativas de CSS** usadas nele:
+Além do pequeno script do vídeo descrito na seção 8, estas são as **funções nativas de CSS** usadas no visual:
 
 | Função | Exemplo real | O que faz |
 | --- | --- | --- |
@@ -247,78 +279,60 @@ Não existem funções JavaScript no site principal. Estas são as **funções n
 | `sobre` | Seção de biografia | Link “Sobre mim”. |
 | `projetos` | Seção de trajetória | Link “Projetos” e botão “Conheça minha trajetória”. |
 | `objetivos` | Seção de objetivos | Link “Próximos passos”. |
+| `video` | Seção de apresentação em vídeo | Link “Vídeo” e retorno a partir de `apoio.html`. |
+| `video-apresentacao` | Elemento `<video>` | Script local que escuta o fim da reprodução. |
+| `video-contribute` | Link para `apoio.html` | Fica oculto até o vídeo terminar. |
 | `registros` | Seção de galeria | Link “Registros”. |
 | `photo` | `<symbol>` SVG oculto | Elementos `<use href="#photo">`; é um desenho reutilizado, não uma seção de navegação. |
 
-O navegador faz a navegação sozinho: `<a href="#projetos">` encontra `id="projetos"` e rola até ele. Não há função `scrollToSection()` ou equivalente no código.
+O navegador faz a navegação por âncoras sozinho: `<a href="#projetos">` encontra `id="projetos"` e rola até ele. O link `href="apoio.html"` abre a página interna de apoio.
+
+O único script do site procura o vídeo e o link de contribuição. Quando o navegador emite o evento `ended` — isto é, quando a reprodução chega realmente ao fim — ele remove o estado `hidden` do convite “Eu quero contribuir”. Não há contagem de doações, pagamentos, integração com banco ou comunicação automática.
 
 O ícone da aba é um SVG embutido no atributo `href` do `<link rel="icon">`. O ícone dos espaços de foto também é SVG embutido. Nenhum dos dois depende de um arquivo de imagem externo.
 
 Há `lang="pt-BR"`, estrutura semântica, rótulo acessível no menu, foco visível e respeito à preferência de movimento reduzido. Os ícones decorativos usam `aria-hidden="true"`. Isso descreve recursos presentes; não equivale a uma auditoria completa de acessibilidade.
 
-## 9. Prévia de apoio — proposta separada
+## 9. Vídeo e página interna de apoio
 
-A seção “Faça parte desta missão” ainda não está em `dist/index.html`. O local proposto é entre objetivos e registros. Nessa proposta, apoio recebe o número 04 e memórias passa a 05; a página principal continua com memórias em 04.
+### Vídeo de apresentação
 
-```text
-┌────────────────────────────────────────────────────────┐
-│ .topo — resumo do chamado                              │
-├────────────────────────────────────────────────────────┤
-│ .corpo                                                 │
-│ .rotulo + h2 — Faça parte desta missão                  │
-│ .texto — explicação do apoio                           │
-│ .custos — Passagens | Passaporte e visto | Seguro       │
-│ .acoes — [Patrocinar ▸] [Contribuir ▸]                  │
-│ .oracao                                                │
-│ ┌────────────────────────────┐ ┌─────────────────────┐ │
-│ │ .divulgacao: texto e ações │ │ .arte               │ │
-│ │ [WhatsApp ▸]               │ │ .foto reservada     │ │
-│ │ [Copiar link ▸]            │ │ Frase de divulgação │ │
-│ │ [Baixar imagem ▸]          │ │                     │ │
-│ └────────────────────────────┘ └─────────────────────┘ │
-├────────────────────────────────────────────────────────┤
-│ .rodape — indicação da próxima seção de memórias        │
-└────────────────────────────────────────────────────────┘
-```
+`index.html` inclui a seção `#video`, entre os objetivos e os registros. Enquanto o vídeo não foi fornecido, o visitante vê um aviso temporário e um caminho sempre visível para `apoio.html`; assim, o acesso ao apoio não depende de assistir ao vídeo.
 
-### Classes do conteúdo editável da prévia
+O elemento `<video id="video-apresentacao">` tem `data-src=""`. Para ativá-lo, informe um arquivo de vídeo local ou uma URL direta de mídia compatível, normalmente `.mp4`. O valor será colocado em `data-src`; o script atribui esse valor a `video.src`, exibe o reprodutor e oculta o aviso. Links de páginas de plataformas de vídeo não são necessariamente URLs diretas de mídia.
 
-O contêiner tem `id="missao-corrigida"`. Os estilos específicos são prefixados por `#missao-corrigida` para limitar sua aplicação a esse conteúdo.
+Ao fim da reprodução, o script mostra o link “Eu quero contribuir”. Esse link apenas abre `apoio.html`; não registra interesse, contato nem recebimento de valor.
 
-| Classe | Função em `previas/apoio-fragmento.html` |
-| --- | --- |
-| `.topo` | Faixa azul de contexto acima da proposta. |
-| `.marca` | Identificação em dourado no topo. |
-| `.corpo` | Área principal da seção de apoio. |
-| `.rotulo` | Numeração e nome curto da seção. |
-| `.texto` | Parágrafo em cor secundária. |
-| `.custos` | Agrupa etiquetas dos custos previstos. |
-| `.acoes` | Organiza os controles expansíveis. |
-| `.principal` | Destaca em dourado o `summary` da opção de patrocínio. |
-| `.cursor-interaction` | Classe nos `summary`; o invólucro exportado define o cursor. Não há regra para ela no fragmento isolado. |
-| `.oracao` | Texto sobre participação por oração e divulgação. |
-| `.divulgacao` | Grade da explicação de compartilhamento e modelo de arte. |
-| `.arte` | Cartão azul que representa a futura arte de divulgação. |
-| `.foto` | Espaço de foto dentro do modelo de arte. |
-| `.rodape` | Indicação da próxima seção, “Memórias da missão”. |
+### Página `apoio.html`
 
-Até 540 px, `.divulgacao` passa a uma coluna. A função CSS `minmax(0, ...)` define as colunas na versão ampla, permitindo que encolham sem um mínimo automático de conteúdo.
+Esta página tem duas opções independentes, para que uma pessoa possa acompanhar a missão sem fazer uma contribuição financeira:
 
-### Comportamento dos controles e scripts da exportação
+| Opção | Conteúdo atual | Estado |
+| --- | --- | --- |
+| **Contribuir com a missão** | Explica que o apoio pode cobrir passagens, passaporte, visto e seguro. | O controle está desativado enquanto não há meios reais de contribuição. |
+| **Acompanhar a missão** | Convida a acompanhar, orar e divulgar. | O botão “Entrar no grupo do WhatsApp” está desativado enquanto não há convite real. |
 
-O fragmento não possui JavaScript. Cada controle usa `<details>` e `<summary>`: ao clicar, o navegador expande ou recolhe uma explicação. Isso **não envia mensagens, recebe pagamentos, copia links ou baixa uma imagem**.
+Nenhuma doação é recebida, aceita ou confirmada pela página. Também não existe QR Code, chave Pix, dados bancários, grupo de WhatsApp ou link de convite configurado no código.
 
-`previas/apoio.html` é diferente: contém um `iframe` e código genérico gerado pela ferramenta de visualização, incluindo scripts de inicialização, comunicação, dimensionamento e persistência local de estado. Por exemplo, `parseState(serializedState)` valida o estado serializado antes de restaurá-lo ou salvá-lo. Esse código é infraestrutura da prévia, não uma funcionalidade missionária nem parte do site principal.
+### Dados necessários para ativação
 
-O catálogo desta seção cobre todas as classes do **fragmento editável**, não as classes e funções genéricas do invólucro exportado. Para manter textos e layout da proposta, a referência é `apoio-fragmento.html`; não há sincronização automática entre ele, a prévia exportada e o site principal.
+Antes de transformar os controles pendentes em links ou apresentar informações reais, obtenha somente:
 
-Antes de implementar contato e contribuição, faltam os dados escolhidos pelo usuário. Para uma arte com retrato real, falta a fotografia. Publicação e audiência devem ser definidas antes de ativar divulgação pública.
+1. Arquivo ou URL direta do vídeo de apresentação.
+2. Meios e dados exatos de contribuição que devem aparecer para o visitante.
+3. Link de convite do grupo do WhatsApp.
+
+Após receber os dados, teste os destinos em uma janela privada, confira a leitura no celular e mantenha as duas opções separadas. Não publique nem altere a audiência do Site sem confirmação explícita.
+
+### Prévia anterior
+
+Os arquivos em `previas/` permanecem no pacote apenas como referência da proposta anterior. `previas/apoio.html` contém um invólucro de visualização exportado; `previas/apoio-fragmento.html` contém o fragmento editável correspondente. Eles não têm sincronização automática com a página `apoio.html` atual e não devem ser usados para presumir funcionalidades de pagamento, WhatsApp, compartilhamento ou download.
 
 ## 10. Guia de manutenção
 
 ### Alterar textos
 
-1. Abra `dist/index.html` e procure uma frase com **Ctrl+F**.
+1. Abra `index.html` ou `apoio.html` e procure uma frase com **Ctrl+F**.
 2. Altere apenas o conteúdo entre as tags, preservando a estrutura.
 3. Salve e atualize o navegador.
 
@@ -326,20 +340,20 @@ O título da aba fica em `<title>`. A descrição para mecanismos de busca fica 
 
 ### Alterar cores e espaçamentos
 
-Procure `:root` para as cores principais. Procure a classe do bloco no catálogo para ajustar sua aparência. Preserve a identidade azul e dourada. Ao alterar uma regra, verifique se ela é sobrescrita nos blocos `@media` de 850 e 600 px.
+Procure `:root` em `style.css` para as cores principais. Procure a classe do bloco no catálogo para ajustar sua aparência. Preserve a identidade azul e dourada. Ao alterar uma regra, verifique se ela é sobrescrita nos blocos `@media` de 850 e 600 px.
 
 Classes compartilhadas têm efeito em vários lugares: mudar `.placeholder` afeta os sete espaços de foto; mudar `.section-head` afeta três seções. Um ajuste exclusivo de projeto deve usar um seletor como `.project .placeholder`.
 
 ### Inserir fotografias futuramente
 
-A pasta sugerida é `dist/imagens/`, a criar quando houver fotos. Os caminhos partem de `dist/index.html`: use `imagens/nome-do-arquivo.jpg`, não `dist/imagens/nome-do-arquivo.jpg`.
+As imagens atualmente usadas pela página estão em `img/`; os registros adicionais estão em `galeria/`. Ao adicionar uma foto nova, mantenha-a em uma dessas pastas ou crie uma pasta clara no mesmo nível de `index.html`. Os caminhos partem de `index.html`: por exemplo, use `img/nome-do-arquivo.jpg`.
 
 Ao substituir um bloco reservado por `<img>`, será necessário definir o estilo da imagem: as regras atuais de `.placeholder` foram feitas para contêineres de ícone e texto. Exemplo didático para **uma foto de projeto**, ainda não implementado:
 
 ```html
 <!-- Substituir o div.placeholder do projeto por esta imagem.
      O arquivo e a descrição devem corresponder à foto real. -->
-<img class="project-photo" src="imagens/foto-do-projeto.jpg"
+<img class="project-photo" src="img/foto-do-projeto.jpg"
      alt="Descrição objetiva da fotografia escolhida" loading="lazy">
 ```
 
@@ -361,21 +375,33 @@ Duplique um `<article class="project">` dentro de `#projetos`. Atualize ano, loc
 
 ### Adicionar uma seção ou mudar a navegação
 
-Crie um ID único e use o mesmo valor no link, como `href="#nova-secao"` e `id="nova-secao"`. Ajuste a numeração editorial das seções quando necessário. No caso de apoio, use o fragmento como referência e adapte as classes ao site antes de integrar.
+Crie um ID único e use o mesmo valor no link, como `href="#nova-secao"` e `id="nova-secao"`. Ajuste a numeração editorial das seções quando necessário. Para uma página interna, use um caminho relativo, como `href="apoio.html"`.
+
+### Ativar o vídeo e os controles de apoio
+
+Não preencha valores fictícios. Quando os dados reais forem fornecidos, faça as alterações abaixo e teste localmente:
+
+1. Em `index.html`, preencha `data-src` do elemento `#video-apresentacao` com um arquivo ou URL direta de vídeo compatível. Não remova o link alternativo para `apoio.html`.
+2. Em `apoio.html`, substitua o controle de contribuição desativado pelos meios exatos que forem autorizados para exibição. Não escreva que uma doação foi recebida sem confirmação real.
+3. Substitua o botão de WhatsApp desativado por um link apenas quando houver o convite real do grupo. A opção deve continuar disponível também para quem não contribuiu.
+4. Confira os links, o final do vídeo e o comportamento em tela estreita antes de qualquer publicação.
 
 ## 11. Verificação após futuras alterações
 
 1. Abra a página no navegador e confira leitura, acentos e ordem das seções.
-2. Teste os quatro links do menu, o botão da trajetória, a marca e o retorno ao início.
+2. Teste os links do menu, o botão da trajetória, a marca, o retorno ao início e os caminhos entre `index.html` e `apoio.html`.
 3. Confira telas amplas e estreitas, incluindo proximidades de 850 e 600 px; procure cortes e rolagem horizontal indesejada.
 4. Use Tab para percorrer os links e confirme o foco visível.
 5. Se houver novas fotos, confira caminhos, enquadramento e textos alternativos.
-6. Se editar a proposta de apoio, verifique também o limite de 540 px e os controles expansíveis.
+6. Confira que o caminho alternativo para apoio aparece mesmo sem vídeo e que “Eu quero contribuir” começa oculto. Com um vídeo real configurado, confirme que ele só aparece depois do término.
+7. Em `apoio.html`, confirme que os dois controles pendentes continuam desativados até receberem os dados reais; depois de ativados, teste cada destino separadamente.
 
 Não há suíte de testes ou etapa de compilação exigida para a página estática. Este manual documenta o código existente; a lista acima orienta a validação quando o site for alterado.
 
-## 12. Estado de publicação
+## 12. Repositório e publicação
 
-Segundo o `LEIA-ME.md`, a última publicação registrada no pacote é a versão 1, privada. Este manual não verifica o estado atual da hospedagem. Editar ou salvar arquivos locais não publica mudanças.
+O repositório Git ativo usa a ramificação `main` e o remoto `origin` aponta para `https://github.com/joseagustobritolinhares/Augusto-em-Miss-o.git`. Um `git push origin main` envia as alterações revisadas para esse repositório.
 
-Preserve `.openai/hosting.json` ao continuar pela hospedagem Sites. Uma publicação futura exige confirmar destino e audiência. A proposta de apoio não deve ser descrita como um sistema de doações pronto.
+O repositório pode estar integrado ao GitHub Pages, mas a URL pública e a origem configurada no Pages devem ser confirmadas no GitHub. Um push atualiza o repositório, não garante por si só outra hospedagem. O arquivo `.openai/hosting.json` é um registro legado que aponta para `dist/`, pasta ausente nesta cópia; não o use para publicar sem uma reconfiguração explícita.
+
+Editar ou salvar arquivos locais não publica mudanças. A página de apoio não deve ser descrita como um sistema de doações pronto até que os dados reais e os meios de contribuição tenham sido configurados e testados.
