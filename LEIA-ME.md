@@ -34,9 +34,9 @@ Projetos incluídos: Um Ano em Missão em Urucará (2025), Escola de Imersão Tr
 
 ## Página de apoio: estado atual
 
-“Faça parte desta missão” já está disponível em `apoio.html`. Há dois caminhos: contribuir com o preparo e acompanhar/orar/divulgar. Os controles permanecem desativados enquanto não houver dados reais; a página não envia mensagens, não confirma doações nem processa pagamentos.
+“Faça parte desta missão” já está disponível em `apoio.html`. Há dois caminhos: contribuir pelo Pix ou pela plataforma de doação e acompanhar/orar/divulgar pelo grupo de WhatsApp. A página não confirma doações nem processa pagamentos diretamente.
 
-Ainda faltam: meio(s) de contribuição autorizado(s), dados de exibição (por exemplo, chave Pix ou link de plataforma), link de convite do WhatsApp, vídeo de apresentação e, se desejado, fotos para a galeria. Não existem esses dados no pacote. O destino missionário internacional também não foi confirmado.
+Ainda faltam: vídeo de apresentação e, se desejado, fotos para a galeria. O destino missionário internacional também não foi confirmado.
 
 ## Repositório e publicação
 

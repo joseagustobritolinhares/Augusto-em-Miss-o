@@ -536,6 +536,82 @@
         padding-left: 14px;
         font-size: 14px;
       }
+      .donation-details {
+        margin: 25px 0 10px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+      .donation-details strong,
+      .donation-details span {
+        display: block;
+      }
+      .donation-details strong {
+        margin-bottom: 8px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 21px;
+        font-weight: 400;
+      }
+      .donation-details span {
+        margin-top: 5px;
+        font-size: 13px;
+      }
+      .donation-details code {
+        font-family: inherit;
+        font-weight: 700;
+      }
+      .copy-pix {
+        margin-top: 15px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--navy);
+        cursor: pointer;
+        font: 700 14px/1.4 Arial, Helvetica, sans-serif;
+        text-decoration: underline;
+        text-decoration-color: var(--gold);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 5px;
+      }
+      .copy-status {
+        min-height: 1.4em;
+        color: var(--muted);
+      }
+      .donation-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+      .donation-actions .button {
+        margin-top: 0;
+      }
+      .qr-link {
+        display: grid;
+        place-items: center;
+        gap: 5px;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+      }
+      .qr-link img {
+        display: block;
+        width: 116px;
+        height: 116px;
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+      .support-thanks {
+        margin: 28px 0 0;
+        padding-left: 16px;
+        border-left: 2px solid var(--gold);
+        color: var(--muted);
+        font: 400 16px/1.6 Georgia, "Times New Roman", serif;
+      }
+      .support-thanks cite {
+        white-space: nowrap;
+      }
       .button-disabled {
         cursor: not-allowed;
         margin-top: 7px;
@@ -724,6 +800,10 @@
         .support-card + .support-card {
           padding-left: 0;
           border-top: 1px solid #54707e;
+        }
+        .donation-actions {
+          align-items: flex-start;
+          flex-direction: column;
         }
         .return-content {
           display: block;

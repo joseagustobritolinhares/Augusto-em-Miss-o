@@ -31,7 +31,7 @@ Entre objetivos e registros, a página principal já contém a seção de vídeo
 
 Opções propostas: conversar por WhatsApp, contribuir, compartilhar no WhatsApp, copiar link e baixar uma arte de divulgação. Antes de ativar contato e doação, obter os dados do usuário. Para uma arte com retrato real, solicitar a foto. As imagens atuais são espaços reservados, não fotos perdidas.
 
-Os controles financeiros e o convite de WhatsApp não foram configurados. Os botões de `apoio.html` devem permanecer desativados até haver dados reais autorizados para exibição.
+Os dados de contribuição e o convite de WhatsApp foram autorizados pelo usuário e estão configurados em `apoio.html`. Não altere chaves, links ou dados bancários sem nova confirmação. A página não confirma recebimento de doações.
 
 ## Continuação e validação
 

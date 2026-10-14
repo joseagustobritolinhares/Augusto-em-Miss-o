@@ -40,14 +40,32 @@
             <span class="number">01.</span>
             <h2>Contribuir com<br />a missão</h2>
             <p>
-              O apoio ajudará nos próximos passos de preparo para servir fora do Brasil, incluindo passagens, passaporte, visto e seguro.
+              O dinheiro arrecadado ajudará a custear o período de serviço no campo, incluindo passagens, visto, alimentação e despesas pessoais.
             </p>
-            <p class="support-note" id="contribuicao-pendente">
-              Os meios de contribuição ainda serão informados. Nenhuma doação é recebida ou confirmada por esta página neste momento.
-            </p>
-            <button class="button button-disabled" type="button" disabled aria-describedby="contribuicao-pendente">
-              Dados de contribuição em breve
-            </button>
+            <div class="donation-details" aria-label="Dados para contribuição por Pix">
+              <div>
+                <strong>Pix</strong>
+                <span>Chave CPF: <code>03587069204</code></span>
+                <span>Favorecido: José Augusto Brito Linhares</span>
+                <span>Banco Inter · Agência 0001 · Conta 50049845-8</span>
+              </div>
+              <button class="copy-pix" type="button" data-pix="03587069204" aria-describedby="pix-status">
+                Copiar chave Pix
+              </button>
+              <span class="copy-status" id="pix-status" aria-live="polite"></span>
+            </div>
+            <div class="donation-actions">
+              <a class="button" href="https://doa.re/epWz" target="_blank" rel="noopener noreferrer">
+                Contribuir pela plataforma <span aria-hidden="true">↗</span>
+              </a>
+              <a class="qr-link" href="https://doa.re/epWz" target="_blank" rel="noopener noreferrer" aria-label="Abrir página de contribuição pela plataforma">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fdoa.re%2FepWz" alt="QR Code para abrir a página de contribuição" width="180" height="180" referrerpolicy="no-referrer" />
+                <span>Escaneie para contribuir</span>
+              </a>
+            </div>
+            <blockquote class="support-thanks">
+              Desde já, sou muito grato a cada um que se dispõe a ajudar. <cite>Lucas 6:38</cite>
+            </blockquote>
           </article>
           <article class="support-card support-card-dark">
             <span class="number">02.</span>
@@ -55,12 +73,12 @@
             <p>
               Mesmo sem contribuir financeiramente, você pode acompanhar as novidades, orar e ajudar a divulgar essa caminhada.
             </p>
-            <p class="support-note" id="grupo-pendente">
-              O convite para o grupo do WhatsApp será incluído quando estiver disponível.
+            <p class="support-note">
+              Entre no grupo para receber novidades, motivos de oração e formas de divulgar a missão.
             </p>
-            <button class="button button-outline button-disabled" type="button" disabled aria-describedby="grupo-pendente">
-              Entrar no grupo do WhatsApp
-            </button>
+            <a class="button button-outline" href="https://chat.whatsapp.com/KQaxubreFJLAvCdPh8UtuS" target="_blank" rel="noopener noreferrer">
+              Entrar no grupo do WhatsApp <span aria-hidden="true">↗</span>
+            </a>
           </article>
         </div>
       </section>
@@ -78,5 +96,21 @@
         <a href="index.html">Voltar ao início ↑</a>
       </div>
     </footer>
+    <script>
+      (() => {
+        const button = document.querySelector(".copy-pix");
+        const status = document.getElementById("pix-status");
+        if (!(button instanceof HTMLButtonElement) || !status) return;
+
+        button.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(button.dataset.pix || "");
+            status.textContent = "Chave Pix copiada.";
+          } catch {
+            status.textContent = "Copie a chave Pix exibida acima.";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -2,6 +2,6 @@ Estou continuando meu portfólio missionário “José Augusto em Missão”, in
 
 Leia AGENTS.md e LEIA-ME.md. Inspecione index.html, apoio.html e style.css. A proposta anterior em previas/apoio-fragmento.html é somente uma referência histórica. Primeiro, ajude-me a abrir o site no navegador e confirme que conseguimos trabalhar nele localmente.
 
-Preserve o visual azul e dourado, os textos e os espaços para fotos. Quero continuar a partir destes arquivos, sem recriar o site do zero. A página de apoio já foi integrada, porém os controles de contribuição e WhatsApp continuam desativados até receberem dados reais. Vamos usar a proposta anterior apenas como referência para próximas alterações.
+Preserve o visual azul e dourado, os textos e os espaços para fotos. Quero continuar a partir destes arquivos, sem recriar o site do zero. A página de apoio já está integrada e tem Pix, plataforma de contribuição e grupo de WhatsApp ativos. Vamos usar a proposta anterior apenas como referência para próximas alterações.
 
 Não invente telefone, Pix, fotos ou dados de contribuição. Informe o que falta e aguarde minhas próximas orientações depois de conferir o projeto. Publique somente se eu pedir explicitamente.

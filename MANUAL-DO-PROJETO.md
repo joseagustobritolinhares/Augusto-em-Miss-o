@@ -312,15 +312,14 @@ Esta página tem duas opções independentes, para que uma pessoa possa acompanh
 | **Contribuir com a missão** | Explica que o apoio pode cobrir passagens, passaporte, visto e seguro. | O controle está desativado enquanto não há meios reais de contribuição. |
 | **Acompanhar a missão** | Convida a acompanhar, orar e divulgar. | O botão “Entrar no grupo do WhatsApp” está desativado enquanto não há convite real. |
 
-Nenhuma doação é recebida, aceita ou confirmada pela página. Também não existe QR Code, chave Pix, dados bancários, grupo de WhatsApp ou link de convite configurado no código.
+O apoio financeiro pode ser feito pela chave Pix exibida ou pelo link da plataforma de doação. O QR Code abre a mesma página da plataforma. O botão “Copiar chave Pix” usa a área de transferência do navegador; se ela não estiver disponível, o visitante ainda pode copiar a chave exibida. O grupo de WhatsApp também está ativo. A página não confirma recebimento de doações.
 
 ### Dados necessários para ativação
 
 Antes de transformar os controles pendentes em links ou apresentar informações reais, obtenha somente:
 
 1. Arquivo ou URL direta do vídeo de apresentação.
-2. Meios e dados exatos de contribuição que devem aparecer para o visitante.
-3. Link de convite do grupo do WhatsApp.
+2. Fotos e legendas para os três espaços da galeria, quando desejado.
 
 Após receber os dados, teste os destinos em uma janela privada, confira a leitura no celular e mantenha as duas opções separadas. Não publique nem altere a audiência do Site sem confirmação explícita.
 
@@ -382,8 +381,8 @@ Crie um ID único e use o mesmo valor no link, como `href="#nova-secao"` e `id="
 Não preencha valores fictícios. Quando os dados reais forem fornecidos, faça as alterações abaixo e teste localmente:
 
 1. Em `index.html`, preencha `data-src` do elemento `#video-apresentacao` com um arquivo ou URL direta de vídeo compatível. Não remova o link alternativo para `apoio.html`.
-2. Em `apoio.html`, substitua o controle de contribuição desativado pelos meios exatos que forem autorizados para exibição. Não escreva que uma doação foi recebida sem confirmação real.
-3. Substitua o botão de WhatsApp desativado por um link apenas quando houver o convite real do grupo. A opção deve continuar disponível também para quem não contribuiu.
+2. Em `apoio.html`, mantenha a chave Pix, o link da plataforma e o convite de WhatsApp atualizados. Não escreva que uma doação foi recebida sem confirmação real.
+3. Se for trocar qualquer URL, teste o destino em uma janela privada. A opção de acompanhar deve continuar disponível também para quem não contribuiu.
 4. Confira os links, o final do vídeo e o comportamento em tela estreita antes de qualquer publicação.
 
 ## 11. Verificação após futuras alterações
@@ -394,7 +393,7 @@ Não preencha valores fictícios. Quando os dados reais forem fornecidos, faça 
 4. Use Tab para percorrer os links e confirme o foco visível.
 5. Se houver novas fotos, confira caminhos, enquadramento e textos alternativos.
 6. Confira que o caminho alternativo para apoio aparece mesmo sem vídeo e que “Eu quero contribuir” começa oculto. Com um vídeo real configurado, confirme que ele só aparece depois do término.
-7. Em `apoio.html`, confirme que os dois controles pendentes continuam desativados até receberem os dados reais; depois de ativados, teste cada destino separadamente.
+7. Em `apoio.html`, teste o botão de copiar Pix, o link da plataforma, o QR Code e o convite do WhatsApp separadamente.
 
 Não há suíte de testes ou etapa de compilação exigida para a página estática. Este manual documenta o código existente; a lista acima orienta a validação quando o site for alterado.
 
